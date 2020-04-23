@@ -1,0 +1,40 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="cd_roles">
+    <Key>
+      <PropertyRef Name="ROLES_ID" />
+    </Key>
+    <Property Name="ROLES_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ROLES_NOMBRES" Type="varchar" MaxLength="100" />
+  </EntityType>
+  <EntityType Name="cd_usuarios">
+    <Key>
+      <PropertyRef Name="USUARIOS_ID" />
+    </Key>
+    <Property Name="USUARIOS_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="USUARIOS_NOMBRE" Type="varchar" MaxLength="100" />
+    <Property Name="USUARIOS_USUARIO" Type="varchar" MaxLength="100" />
+    <Property Name="USUARIOS_CONTRASEÑA" Type="varchar" MaxLength="100" />
+    <Property Name="USUARIOS_ROL" Type="int" Nullable="false" />
+  </EntityType>
+  <Association Name="FK_cd_usuarios_cd_roles">
+    <End Role="cd_roles" Type="Self.cd_roles" Multiplicity="1" />
+    <End Role="cd_usuarios" Type="Self.cd_usuarios" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="cd_roles">
+        <PropertyRef Name="ROLES_ID" />
+      </Principal>
+      <Dependent Role="cd_usuarios">
+        <PropertyRef Name="USUARIOS_ROL" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="ModelStoreContainer">
+    <EntitySet Name="cd_roles" EntityType="Self.cd_roles" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="cd_usuarios" EntityType="Self.cd_usuarios" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_cd_usuarios_cd_roles" Association="Self.FK_cd_usuarios_cd_roles">
+      <End Role="cd_roles" EntitySet="cd_roles" />
+      <End Role="cd_usuarios" EntitySet="cd_usuarios" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>
