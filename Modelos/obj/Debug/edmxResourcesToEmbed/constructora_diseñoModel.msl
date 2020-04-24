@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="constructora_diseñoModelStoreContainer" CdmEntityContainer="constructora_diseñoEntities">
+    <EntitySetMapping Name="cd_roles">
+      <EntityTypeMapping TypeName="constructora_diseñoModel.cd_roles">
+        <MappingFragment StoreEntitySet="cd_roles">
+          <ScalarProperty Name="ROLES_ID" ColumnName="ROLES_ID" />
+          <ScalarProperty Name="ROLES_NOMBRES" ColumnName="ROLES_NOMBRES" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="cd_usuarios">
+      <EntityTypeMapping TypeName="constructora_diseñoModel.cd_usuarios">
+        <MappingFragment StoreEntitySet="cd_usuarios">
+          <ScalarProperty Name="USUARIOS_ID" ColumnName="USUARIOS_ID" />
+          <ScalarProperty Name="USUARIOS_NOMBRE" ColumnName="USUARIOS_NOMBRE" />
+          <ScalarProperty Name="USUARIOS_USUARIO" ColumnName="USUARIOS_USUARIO" />
+          <ScalarProperty Name="USUARIOS_CONTRASEÑA" ColumnName="USUARIOS_CONTRASEÑA" />
+          <ScalarProperty Name="USUARIOS_ROL" ColumnName="USUARIOS_ROL" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

@@ -1,0 +1,16 @@
+C:\Users\sams\source\repos\constructora_diseño\Pruebas\bin\Debug\Pruebas.exe.config
+C:\Users\sams\source\repos\constructora_diseño\Pruebas\bin\Debug\Pruebas.exe
+C:\Users\sams\source\repos\constructora_diseño\Pruebas\bin\Debug\Pruebas.pdb
+C:\Users\sams\source\repos\constructora_diseño\Pruebas\obj\Debug\Pruebas.csprojAssemblyReference.cache
+C:\Users\sams\source\repos\constructora_diseño\Pruebas\obj\Debug\Pruebas.csproj.CoreCompileInputs.cache
+C:\Users\sams\source\repos\constructora_diseño\Pruebas\obj\Debug\Pruebas.exe
+C:\Users\sams\source\repos\constructora_diseño\Pruebas\obj\Debug\Pruebas.pdb
+C:\Users\sams\source\repos\constructora_diseño\Pruebas\bin\Debug\Modelos.dll
+C:\Users\sams\source\repos\constructora_diseño\Pruebas\bin\Debug\EntityFramework.dll
+C:\Users\sams\source\repos\constructora_diseño\Pruebas\bin\Debug\MetodosDeExtension.dll
+C:\Users\sams\source\repos\constructora_diseño\Pruebas\bin\Debug\Modelos.pdb
+C:\Users\sams\source\repos\constructora_diseño\Pruebas\bin\Debug\Modelos.dll.config
+C:\Users\sams\source\repos\constructora_diseño\Pruebas\bin\Debug\EntityFramework.xml
+C:\Users\sams\source\repos\constructora_diseño\Pruebas\obj\Debug\Pruebas.csproj.CopyComplete
+C:\Users\sams\source\repos\constructora_diseño\Pruebas\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\sams\source\repos\constructora_diseño\Pruebas\bin\Debug\EntityFramework.SqlServer.xml

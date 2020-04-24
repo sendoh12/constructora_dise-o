@@ -1,0 +1,42 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="constructora_diseñoModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="cd_roles">
+    <Key>
+      <PropertyRef Name="ROLES_ID" />
+    </Key>
+    <Property Name="ROLES_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ROLES_NOMBRES" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="cd_usuarios" Relationship="Self.FK_cd_usuarios_cd_roles" FromRole="cd_roles" ToRole="cd_usuarios" />
+  </EntityType>
+  <EntityType Name="cd_usuarios">
+    <Key>
+      <PropertyRef Name="USUARIOS_ID" />
+    </Key>
+    <Property Name="USUARIOS_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="USUARIOS_NOMBRE" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="USUARIOS_USUARIO" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="USUARIOS_CONTRASEÑA" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="USUARIOS_ROL" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="cd_roles" Relationship="Self.FK_cd_usuarios_cd_roles" FromRole="cd_usuarios" ToRole="cd_roles" />
+  </EntityType>
+  <Association Name="FK_cd_usuarios_cd_roles">
+    <End Role="cd_roles" Type="Self.cd_roles" Multiplicity="1" />
+    <End Role="cd_usuarios" Type="Self.cd_usuarios" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="cd_roles">
+        <PropertyRef Name="ROLES_ID" />
+      </Principal>
+      <Dependent Role="cd_usuarios">
+        <PropertyRef Name="USUARIOS_ROL" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="constructora_diseñoEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="cd_roles" EntityType="Self.cd_roles" />
+    <EntitySet Name="cd_usuarios" EntityType="Self.cd_usuarios" />
+    <AssociationSet Name="FK_cd_usuarios_cd_roles" Association="Self.FK_cd_usuarios_cd_roles">
+      <End Role="cd_roles" EntitySet="cd_roles" />
+      <End Role="cd_usuarios" EntitySet="cd_usuarios" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

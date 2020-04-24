@@ -1,0 +1,13 @@
+C:\Users\sams\source\repos\constructora_diseño\Modelos\bin\Debug\Modelos.dll.config
+C:\Users\sams\source\repos\constructora_diseño\Modelos\bin\Debug\Modelos.dll
+C:\Users\sams\source\repos\constructora_diseño\Modelos\bin\Debug\Modelos.pdb
+C:\Users\sams\source\repos\constructora_diseño\Modelos\bin\Debug\EntityFramework.dll
+C:\Users\sams\source\repos\constructora_diseño\Modelos\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\sams\source\repos\constructora_diseño\Modelos\bin\Debug\MetodosDeExtension.dll
+C:\Users\sams\source\repos\constructora_diseño\Modelos\bin\Debug\EntityFramework.xml
+C:\Users\sams\source\repos\constructora_diseño\Modelos\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\sams\source\repos\constructora_diseño\Modelos\obj\Debug\Modelos.csprojAssemblyReference.cache
+C:\Users\sams\source\repos\constructora_diseño\Modelos\obj\Debug\Modelos.csproj.CoreCompileInputs.cache
+C:\Users\sams\source\repos\constructora_diseño\Modelos\obj\Debug\Modelos.csproj.CopyComplete
+C:\Users\sams\source\repos\constructora_diseño\Modelos\obj\Debug\Modelos.dll
+C:\Users\sams\source\repos\constructora_diseño\Modelos\obj\Debug\Modelos.pdb

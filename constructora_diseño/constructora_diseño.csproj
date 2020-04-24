@@ -600,16 +600,6 @@
     <Content Include="app-assets\vendors\js\vertical-timeline.js" />
     <Content Include="app-assets\vendors\js\wizard-steps.js" />
     <Content Include="app-assets\vendors\js\wNumb.js" />
-    <Content Include="constructora_diseño.Context.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>constructora_diseño.Context.cs</LastGenOutput>
-      <DependentUpon>constructora_diseño.edmx</DependentUpon>
-    </Content>
-    <Content Include="constructora_diseño.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>constructora_diseño.edmx</DependentUpon>
-      <LastGenOutput>constructora_diseño.cs</LastGenOutput>
-    </Content>
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
@@ -716,27 +706,6 @@
   <ItemGroup>
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
-    <Compile Include="cd_roles.cs">
-      <DependentUpon>constructora_diseño.tt</DependentUpon>
-    </Compile>
-    <Compile Include="cd_usuarios.cs">
-      <DependentUpon>constructora_diseño.tt</DependentUpon>
-    </Compile>
-    <Compile Include="constructora_diseño.Context.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>constructora_diseño.Context.tt</DependentUpon>
-    </Compile>
-    <Compile Include="constructora_diseño.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>constructora_diseño.tt</DependentUpon>
-    </Compile>
-    <Compile Include="constructora_diseño.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>constructora_diseño.edmx</DependentUpon>
-    </Compile>
     <Compile Include="Controllers\LoginController.cs" />
     <Compile Include="Controllers\MenuController.cs" />
     <Compile Include="Global.asax.cs">
@@ -777,13 +746,6 @@
     <Content Include="app-assets\vendors\js\pace\LICENSE" />
     <Content Include="app-assets\vendors\js\pace\pace.coffee" />
     <Content Include="app-assets\vendors\js\pace\README.md" />
-    <EntityDeploy Include="constructora_diseño.edmx">
-      <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>constructora_diseño.Designer.cs</LastGenOutput>
-    </EntityDeploy>
-    <Content Include="constructora_diseño.edmx.diagram">
-      <DependentUpon>constructora_diseño.edmx</DependentUpon>
-    </Content>
     <None Include="packages.config" />
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\_ViewStart.cshtml" />
