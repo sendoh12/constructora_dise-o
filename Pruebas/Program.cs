@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.Remoting.Contexts;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -11,18 +12,18 @@ namespace Pruebas
     {
         static void Main(string[] args)
         {
-            using (Modelos.Repositorio<Modelos.cd_roles> obj = new Modelos.Repositorio<Modelos.cd_roles>())
-            {
-                //obj.Exception += Obj_Exception;
-                //obj.Delete(obj.Retrieve(x => x.ROLES_ID == 2));
+            Modelos.constructora_diseñoEntities contexto = new Modelos.constructora_diseñoEntities();
+            //obj.Exception += Obj_Exception;
+            //obj.Delete(obj.Retrieve(x => x.ROLES_ID == 2));
 
-                using(Modelos.Repositorio<Modelos.cd_usuarios> dato = new Modelos.Repositorio<Modelos.cd_usuarios>())
+            using (Modelos.Repositorio<Modelos.cd_usuarios> dato = new Modelos.Repositorio<Modelos.cd_usuarios>(contexto))
                 {
-                    dato.Create(new Modelos.cd_usuarios()
+                dato.Exception += Obj_Exception;
+                dato.Create(new Modelos.cd_usuarios()
                     {
-                        USUARIOS_NOMBRE = "carlos ferrandon",
-                        USUARIOS_USUARIO = "carlos",
-                        USUARIOS_CONTRASEÑA = Seguridad.Encriptar("sendoh12"),
+                        USUARIOS_NOMBRE = "santos cervantes3",
+                        USUARIOS_USUARIO = "santos3",
+                        USUARIOS_CONTRASEÑA = Seguridad.Encriptar("sendoh123"),
                         USUARIOS_ROL = 1,
                     });
 
@@ -35,7 +36,7 @@ namespace Pruebas
                 }
 
                 
-            }
+            
 
             Console.WriteLine("Presione <enter> para salir");
             Console.ReadLine();

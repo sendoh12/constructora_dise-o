@@ -75,6 +75,7 @@
       <DependentUpon>constructora_diseñoModel.edmx</DependentUpon>
     </Compile>
     <Compile Include="IRepositorio.cs" />
+    <Compile Include="LoginViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repositorio.cs" />
     <Compile Include="Seguridad.cs" />

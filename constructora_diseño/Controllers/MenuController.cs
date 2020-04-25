@@ -12,6 +12,7 @@ namespace constructora_diseño.Controllers
 {
     public class MenuController : Controller
     {
+        Modelos.constructora_diseñoEntities contexto = new Modelos.constructora_diseñoEntities();
         // GET: Menu
         public ActionResult Menu_principal()
         {
@@ -21,7 +22,7 @@ namespace constructora_diseño.Controllers
         [HttpGet]
         public ActionResult Inicio()
         {
-            using (Repositorio<cd_roles> obj = new Repositorio<cd_roles>())
+            using (Repositorio<cd_roles> obj = new Repositorio<cd_roles>(contexto))
             {
                 obj.Exception += Obj_Exception;
                 ViewBag.data = obj.Filter(x => true);
@@ -33,7 +34,7 @@ namespace constructora_diseño.Controllers
         public ActionResult Crear(string USUARIOS_NOMBRE, string USUARIOS_USUARIO, string USUARIOS_CONTRASEÑA, int USUARIOS_ROL)
         {
             Thread.Sleep(5000);
-            using(Repositorio<cd_usuarios> obj = new Repositorio<cd_usuarios>())
+            using(Repositorio<cd_usuarios> obj = new Repositorio<cd_usuarios>(contexto))
             {
                 obj.Exception += Obj_Exception;
                 obj.Create(new Modelos.cd_usuarios()
