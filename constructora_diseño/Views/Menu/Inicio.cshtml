@@ -19,7 +19,7 @@
             <div class="card-body">
                 <div class="px-3">
 
-                    @using (Html.BeginForm("Create", "Persona", FormMethod.Post, new { id = "formulario" }))
+                    @using (Html.BeginForm("Crear", "Menu", FormMethod.Post, new { id = "formulario" }))
                     {
                         @Html.AntiForgeryToken()
 
@@ -70,10 +70,7 @@
 
                         <div class="form-actions clearfix">
                             <div class="buttons-group float-left">
-                                <button type="button" class="btn btn-raised btn-warning mr-1">
-                                    <i class="ft-x"></i> Cancelar
-                                </button>
-                                <button type="button" class="btn btn-raised btn-primary mr-1">
+                                <button type="submit" class="btn btn-raised btn-primary mr-1">
                                     <i class="fa fa-check-square-o"></i> Guardar
                                 </button>
                             </div>

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Modelos;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -12,14 +13,28 @@ namespace Pruebas
         {
             using (Modelos.Repositorio<Modelos.cd_roles> obj = new Modelos.Repositorio<Modelos.cd_roles>())
             {
-                obj.Exception += Obj_Exception;
+                //obj.Exception += Obj_Exception;
                 //obj.Delete(obj.Retrieve(x => x.ROLES_ID == 2));
 
-                var listado = obj.Filter(x => true);
-                foreach (var item in listado)
+                using(Modelos.Repositorio<Modelos.cd_usuarios> dato = new Modelos.Repositorio<Modelos.cd_usuarios>())
                 {
-                    Console.WriteLine(item.ROLES_NOMBRES);
+                    dato.Create(new Modelos.cd_usuarios()
+                    {
+                        USUARIOS_NOMBRE = "carlos ferrandon",
+                        USUARIOS_USUARIO = "carlos",
+                        USUARIOS_CONTRASEÑA = Seguridad.Encriptar("sendoh12"),
+                        USUARIOS_ROL = 1,
+                    });
+
+                    var listado = dato.Filter(x => true);
+                    foreach (var item in listado)
+                    {
+                        Console.WriteLine(item.USUARIOS_NOMBRE);
+                        Console.WriteLine(item.USUARIOS_CONTRASEÑA);
+                    }
                 }
+
+                
             }
 
             Console.WriteLine("Presione <enter> para salir");
