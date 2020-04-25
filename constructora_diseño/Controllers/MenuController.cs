@@ -5,6 +5,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using Modelos;
+using System.Data.SqlClient;
 
 namespace constructora_diseño.Controllers
 {
@@ -18,7 +19,8 @@ namespace constructora_diseño.Controllers
 
         public ActionResult Inicio()
         {
-            using(Repositorio<cd_roles> obj = new Repositorio<cd_roles>())
+ 
+            using (Repositorio<cd_roles> obj = new Repositorio<cd_roles>())
             {
                 obj.Exception += Obj_Exception;
                 ViewBag.data = obj.Filter(x => true);

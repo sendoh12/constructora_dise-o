@@ -1,5 +1,5 @@
 ﻿@model Modelos.cd_roles
-@using Modelos
+
 @{
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
@@ -50,14 +50,14 @@
 
                                     <div class="row">
                                         <div class="form-group col-12 mb-2">
-                                            <label for="eventRegInput4">Tipo de usuario</label>
+                                            <label for="eventRegInput4">Tipo de usuario</label><br />
                                             <lavel>hola mundo</lavel>
                                             @foreach (var item in ViewBag.data)
                                             {
-                                               @item.ROLES_NOMBRES;
+                                                @item.ROLES_NOMBRES;
                                             }
-                                            <h1>@ViewBag.data</h1>
-                                            @Html.DropDownListFor(model => model.ROLES_NOMBRES, new SelectList(@ViewBag.data, "ROLES_ID", "ROLES_NOMBRES"), new { @class = "form-control" })
+                                            @*@Html.DropDownList("data", null, String.Empty, new {@class = "form-control" })*@
+                                            @Html.DropDownListFor(model => model.ROLES_NOMBRES, new SelectList(ViewBag.data, "ROLES_ID", "ROLES_NOMBRES"), new { @class = "form-control" })
                                             @Html.ValidationMessageFor(model => model.ROLES_NOMBRES, "", new { @class = "text-danger" })
                                             @*<select id="roles" name="roles" class="custom-select cz-sidebar-width float-right"></select>*@
                                         </div>
