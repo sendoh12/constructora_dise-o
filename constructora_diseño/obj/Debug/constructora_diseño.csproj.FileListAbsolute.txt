@@ -172,3 +172,7 @@ C:\Users\sams\source\repos\constructora_diseño\constructora_diseño\bin\EntityF
 C:\Users\sams\source\repos\constructora_diseño\constructora_diseño\bin\EntityFramework.SqlServer.dll
 C:\Users\sams\source\repos\constructora_diseño\constructora_diseño\bin\EntityFramework.xml
 C:\Users\sams\source\repos\constructora_diseño\constructora_diseño\bin\EntityFramework.SqlServer.xml
+C:\Users\sams\source\repos\constructora_diseño\constructora_diseño\bin\Modelos.dll
+C:\Users\sams\source\repos\constructora_diseño\constructora_diseño\bin\MetodosDeExtension.dll
+C:\Users\sams\source\repos\constructora_diseño\constructora_diseño\bin\Modelos.pdb
+C:\Users\sams\source\repos\constructora_diseño\constructora_diseño\bin\Modelos.dll.config

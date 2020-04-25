@@ -13,7 +13,7 @@ namespace Pruebas
             using (Modelos.Repositorio<Modelos.cd_roles> obj = new Modelos.Repositorio<Modelos.cd_roles>())
             {
                 obj.Exception += Obj_Exception;
-                obj.Delete(obj.Retrieve(x => x.ROLES_ID == 2));
+                //obj.Delete(obj.Retrieve(x => x.ROLES_ID == 2));
 
                 var listado = obj.Filter(x => true);
                 foreach (var item in listado)

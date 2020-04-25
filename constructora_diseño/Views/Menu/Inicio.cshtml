@@ -1,7 +1,9 @@
-﻿
+﻿@model Modelos.cd_roles
+@using Modelos
 @{
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
+
 
 
 <div class="row">
@@ -17,41 +19,51 @@
             <div class="card-body">
                 <div class="px-3">
 
-                    <form class="form">
-                        
+                    @using (Html.BeginForm("Create", "Persona", FormMethod.Post, new { id = "formulario" }))
+                    {
+                        @Html.AntiForgeryToken()
 
                         <div class="row justify-content-md-center">
                             <div class="col-md-6">
                                 <div class="form-body">
                                     <div class="row">
                                         <div class="form-group col-12 mb-2">
+
                                             <label for="eventRegInput1">Nombre</label>
-                                            <input type="text" id="eventRegInput1" class="form-control" placeholder="name" name="fullname">
+                                            <input type="text" id="nombre" class="form-control" placeholder="name" name="nombre">
                                         </div>
                                     </div>
 
                                     <div class="row">
                                         <div class="form-group col-12 mb-2">
                                             <label for="eventRegInput2">Usuario</label>
-                                            <input type="text" id="eventRegInput2" class="form-control" placeholder="title" name="title">
+                                            <input type="text" id="usuario" class="form-control" placeholder="title" name="usuario">
                                         </div>
                                     </div>
 
                                     <div class="row">
                                         <div class="form-group col-12 mb-2">
                                             <label for="eventRegInput3">Constraseña</label>
-                                            <input type="text" id="eventRegInput3" class="form-control" placeholder="company" name="company">
+                                            <input type="password" id="password" class="form-control" placeholder="company" name="password">
                                         </div>
                                     </div>
 
                                     <div class="row">
                                         <div class="form-group col-12 mb-2">
                                             <label for="eventRegInput4">Tipo de usuario</label>
-                                            <input type="email" id="eventRegInput4" class="form-control" placeholder="email" name="email">
+                                            <lavel>hola mundo</lavel>
+                                            @foreach (var item in @ViewBag.data)
+                                            {
+                                               @item.ROLES_NOMBRES;
+                                            }
+                                            <h1>@ViewBag.data</h1>
+                                            @Html.DropDownListFor(model => model.ROLES_NOMBRES, new SelectList(@ViewBag.data, "ROLES_ID", "ROLES_NOMBRES"), new { @class = "form-control" })
+                                            @Html.ValidationMessageFor(model => model.ROLES_NOMBRES, "", new { @class = "text-danger" })
+                                            @*<select id="roles" name="roles" class="custom-select cz-sidebar-width float-right"></select>*@
                                         </div>
                                     </div>
 
-                                   
+
                                 </div>
                             </div>
                         </div>
@@ -66,12 +78,16 @@
                                 </button>
                             </div>
                         </div>
-                    </form>
+                    }
 
                 </div>
             </div>
         </div>
     </div>
 </div>
+
+<script src="~/Scripts/jquery-1.10.2.min.js"></script>
+<script src="~/Scripts/jquery.validate.min.js"></script>
+<script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
 
 

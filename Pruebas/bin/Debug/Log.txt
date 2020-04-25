@@ -59,3 +59,13 @@ StackTrace:    en System.Data.Entity.Internal.LazyInternalConnection.get_Connect
 ----------------------------------------
 Source: EntityFramework
 ----------------------------------------
+24/04/2020 01:03:06 p. m.
+Message: El valor no puede ser nulo.
+Nombre del parámetro: entity
+----------------------------------------
+StackTrace:    en System.Data.Entity.Utilities.Check.NotNull[T](T value, String parameterName)
+   en System.Data.Entity.DbSet`1.Attach(TEntity entity)
+   en Modelos.Repositorio`1.Delete(TEntity toDelete) en C:\Users\sams\source\repos\constructora_diseño\Modelos\Repositorio.cs:línea 52
+----------------------------------------
+Source: EntityFramework
+----------------------------------------
