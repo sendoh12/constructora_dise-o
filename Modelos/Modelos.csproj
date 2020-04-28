@@ -77,8 +77,10 @@
     </Compile>
     <Compile Include="Imagenes.cs" />
     <Compile Include="IRepositorio.cs" />
+
     <Compile Include="Listaimagen.cs" />
     <Compile Include="Metodos.cs" />
+    <Compile Include="LoginViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repositorio.cs" />
     <Compile Include="Seguridad.cs" />

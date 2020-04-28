@@ -4,7 +4,7 @@ using System.Linq.Expressions;
 
 namespace Modelos
 {
-    public interface IRepositorio<TEntity> : IDisposable
+    public interface IRepositorio<TEntity> : IDisposable where TEntity : class
     {
         TEntity Create(TEntity toCreate);
         TEntity Retrieve(Expression<Func<TEntity, bool>> criterio);

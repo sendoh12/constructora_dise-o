@@ -14,11 +14,17 @@ namespace Modelos
         IRepositorio<TEntity> where TEntity : class
     {
         public event ExceptionEventHandler Exception;
-        constructora_diseñoEntities Context;
+        constructora_diseñoEntities Context = null;
 
-        public Repositorio()
+        //public Repositorio(constructora_diseñoEntities contexto)
+        //{
+        //    Context = new constructora_diseñoEntities();
+        //}
+        public Repositorio(constructora_diseñoEntities Context, bool lazyLoadingEnabled = false, bool proxyCreationEnabled = false)
         {
-            Context = new constructora_diseñoEntities();
+            this.Context = Context;
+            Context.Configuration.LazyLoadingEnabled = lazyLoadingEnabled;
+            Context.Configuration.ProxyCreationEnabled = proxyCreationEnabled;
         }
 
         private DbSet<TEntity> EntitySet { get { return Context.Set<TEntity>(); } }
@@ -158,6 +164,11 @@ namespace Modelos
         {
             if (Context != null)
                 Context.Dispose();
+        }
+
+        public TEntity Retrieve(object p, Expression<Func<TEntity, bool>> criterio)
+        {
+            throw new NotImplementedException();
         }
     }
 
