@@ -18,6 +18,7 @@ namespace constructora_diseño.Controllers
             return View();
         }
 
+        
         [HttpGet]
         public ActionResult Inicio()
         {
@@ -56,6 +57,48 @@ namespace constructora_diseño.Controllers
             }
   
 
+        }
+
+        [HttpGet]
+        public ActionResult Cargarimagenes()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public void ingresar() 
+        {
+            try {
+                Imagenes img = new Imagenes();
+                Listaimagen list = new Listaimagen();
+                HttpPostedFileBase archivo = Request.Files[0];
+                 //img.Titulo = (archivo.FileName).ToLower();
+                if (archivo.ContentLength > 0)
+                {
+                    string ext = archivo.FileName;
+                    img.Titulo = ext.Substring(ext.LastIndexOf(".") + 1).ToLower();
+                    string[] formatos = new string[] { "jpg", "jpeg", "bmp", "png", "gif" };
+                    if (Array.IndexOf(formatos, img.Titulo) < 0)
+                    {
+                        //MensajeError("Formato de imagen inválido.");
+                        //alertas avisar si la imagen esta guardado con los formatos o esta equibocado mesaje de 
+                        //error
+                    }
+                    else {
+                        ///guardamos
+                        ///
+                        img.Imagen = archivo;
+                        //guardamos la imagen en la base de datos
+                        list.Insertar(img);
+                        
+                    }
+
+                }
+                //return View();
+            } catch (Exception ex) {
+                Console.WriteLine(ex);
+            
+            }
         }
     }
 }

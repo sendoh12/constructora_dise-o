@@ -11,3 +11,15 @@ C:\Users\sams\source\repos\constructora_diseño\Modelos\obj\Debug\Modelos.csproj
 C:\Users\sams\source\repos\constructora_diseño\Modelos\obj\Debug\Modelos.csproj.CopyComplete
 C:\Users\sams\source\repos\constructora_diseño\Modelos\obj\Debug\Modelos.dll
 C:\Users\sams\source\repos\constructora_diseño\Modelos\obj\Debug\Modelos.pdb
+C:\Users\Usuario\source\repos\constructora_diseno\Modelos\bin\Debug\Modelos.dll.config
+C:\Users\Usuario\source\repos\constructora_diseno\Modelos\bin\Debug\Modelos.dll
+C:\Users\Usuario\source\repos\constructora_diseno\Modelos\bin\Debug\Modelos.pdb
+C:\Users\Usuario\source\repos\constructora_diseno\Modelos\bin\Debug\EntityFramework.dll
+C:\Users\Usuario\source\repos\constructora_diseno\Modelos\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\Usuario\source\repos\constructora_diseno\Modelos\bin\Debug\EntityFramework.xml
+C:\Users\Usuario\source\repos\constructora_diseno\Modelos\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\Usuario\source\repos\constructora_diseno\Modelos\obj\Debug\Modelos.csprojAssemblyReference.cache
+C:\Users\Usuario\source\repos\constructora_diseno\Modelos\obj\Debug\Modelos.csproj.CoreCompileInputs.cache
+C:\Users\Usuario\source\repos\constructora_diseno\Modelos\obj\Debug\Modelos.csproj.CopyComplete
+C:\Users\Usuario\source\repos\constructora_diseno\Modelos\obj\Debug\Modelos.dll
+C:\Users\Usuario\source\repos\constructora_diseno\Modelos\obj\Debug\Modelos.pdb
