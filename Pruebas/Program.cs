@@ -5,6 +5,7 @@ using System.Linq;
 using System.Runtime.Remoting.Contexts;
 using System.Text;
 using System.Threading.Tasks;
+using constructora_diseño;
 
 namespace Pruebas
 {
@@ -12,11 +13,11 @@ namespace Pruebas
     {
         static void Main(string[] args)
         {
-            Modelos.constructora_diseñoEntities contexto = new Modelos.constructora_diseñoEntities();
+            //Modelos.constructora_diseñoEntities contexto = new Modelos.constructora_diseñoEntities();
             //obj.Exception += Obj_Exception;
             //obj.Delete(obj.Retrieve(x => x.ROLES_ID == 2));
 
-            using (Modelos.Repositorio<Modelos.cd_usuarios> dato = new Modelos.Repositorio<Modelos.cd_usuarios>(contexto))
+            using (Modelos.Repositorio<Modelos.cd_usuarios> dato = new Modelos.Repositorio<Modelos.cd_usuarios>())
                 {
                 dato.Exception += Obj_Exception;
                 dato.Create(new Modelos.cd_usuarios()
@@ -35,9 +36,7 @@ namespace Pruebas
                     }
                 }
 
-                
             
-
             Console.WriteLine("Presione <enter> para salir");
             Console.ReadLine();
         }

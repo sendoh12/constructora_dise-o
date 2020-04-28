@@ -10,11 +10,11 @@ namespace Modelos
     public class LoginViewModel
     {
         [Display(Name = "Usuario:")]
-        public string Usuario { get; set; }
+        public string USUARIOS_USUARIO { get; set; }
 
         [Display(Name = "clave de accesso:")]
         [DataType(DataType.Password)]
-        public string Password { get; set; }
+        public string USUARIOS_CONTRASEÑA { get; set; }
 
         [Display(Name = "Recordarme")]
         public bool Remember { get; set; }

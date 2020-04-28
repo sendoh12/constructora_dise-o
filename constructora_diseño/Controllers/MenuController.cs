@@ -10,19 +10,21 @@ using System.Threading;
 
 namespace constructora_diseño.Controllers
 {
+    [Authorize]
     public class MenuController : Controller
     {
-        Modelos.constructora_diseñoEntities contexto = new Modelos.constructora_diseñoEntities();
+        //Modelos.constructora_diseñoEntities contexto = new Modelos.constructora_diseñoEntities();
         // GET: Menu
         public ActionResult Menu_principal()
         {
             return View();
         }
 
+        
         [HttpGet]
         public ActionResult Inicio()
         {
-            using (Repositorio<cd_roles> obj = new Repositorio<cd_roles>(contexto))
+            using (Repositorio<cd_roles> obj = new Repositorio<cd_roles>())
             {
                 obj.Exception += Obj_Exception;
                 ViewBag.data = obj.Filter(x => true);
@@ -34,7 +36,7 @@ namespace constructora_diseño.Controllers
         public ActionResult Crear(string USUARIOS_NOMBRE, string USUARIOS_USUARIO, string USUARIOS_CONTRASEÑA, int USUARIOS_ROL)
         {
             Thread.Sleep(5000);
-            using(Repositorio<cd_usuarios> obj = new Repositorio<cd_usuarios>(contexto))
+            using(Repositorio<cd_usuarios> obj = new Repositorio<cd_usuarios>())
             {
                 obj.Exception += Obj_Exception;
                 obj.Create(new Modelos.cd_usuarios()

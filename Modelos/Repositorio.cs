@@ -7,6 +7,7 @@ using System.Linq;
 using System.Linq.Expressions;
 using System.Reflection;
 
+
 namespace Modelos
 {
     public delegate void ExceptionEventHandler(object sender, ExceptionEventArgs e);
@@ -14,17 +15,11 @@ namespace Modelos
         IRepositorio<TEntity> where TEntity : class
     {
         public event ExceptionEventHandler Exception;
-        constructora_diseñoEntities Context = null;
+        constructora_diseñoEntities Context;
 
-        //public Repositorio(constructora_diseñoEntities contexto)
-        //{
-        //    Context = new constructora_diseñoEntities();
-        //}
-        public Repositorio(constructora_diseñoEntities Context, bool lazyLoadingEnabled = false, bool proxyCreationEnabled = false)
+        public Repositorio()
         {
-            this.Context = Context;
-            Context.Configuration.LazyLoadingEnabled = lazyLoadingEnabled;
-            Context.Configuration.ProxyCreationEnabled = proxyCreationEnabled;
+            Context = new constructora_diseñoEntities();
         }
 
         private DbSet<TEntity> EntitySet { get { return Context.Set<TEntity>(); } }
@@ -158,17 +153,10 @@ namespace Modelos
             return Resultado;
         }
 
-       
-
         public void Dispose()
         {
             if (Context != null)
                 Context.Dispose();
-        }
-
-        public TEntity Retrieve(object p, Expression<Func<TEntity, bool>> criterio)
-        {
-            throw new NotImplementedException();
         }
     }
 
@@ -182,3 +170,5 @@ namespace Modelos
         public IEnumerable<DbEntityValidationResult> EntityValidationErrors { get; set; }
     }
 }
+
+
