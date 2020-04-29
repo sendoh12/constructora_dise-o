@@ -12,23 +12,25 @@
             <div class="card-header">
                 <h4 class="card-title" id="from-actions-multiple">Registrar Administradores</h4>
                 <div class="alert alert-info" role="alert">
-                    <strong>Ingresa los datos del administrador</strong>
+                    <strong>Editar los datos del administrador</strong>
                 </div>
 
             </div>
             <div class="card-body">
                 <div class="px-3">
 
-                    @using (Html.BeginForm("Crear", "Menu", FormMethod.Post, new { @class = "form", id = "formulario" }))
+                    @using (Html.BeginForm("Editar", "Menu", FormMethod.Post, new { @class = "form", id = "formulario" }))
                     {
                         @Html.AntiForgeryToken()
+
+                        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                        @Html.EditorFor(Model => Model.USUARIOS_ID)
 
                         <div class="row justify-content-md-center">
                             <div class="col-md-6">
                                 <div class="form-body">
                                     <div class="row">
                                         <div class="form-group col-12 mb-2">
-
                                             <label for="eventRegInput1">Nombre</label>
                                             @Html.EditorFor(model => model.USUARIOS_NOMBRE, new { htmlAttributes = new { @class = "form-control", placeholder = "Nombre" } })
                                             @Html.ValidationMessageFor(model => model.USUARIOS_NOMBRE, "", new { @class = "text-danger" })
@@ -57,7 +59,7 @@
                                     <div class="row">
                                         <div class="form-group col-12 mb-2">
                                             <label for="eventRegInput4">Tipo de usuario</label><br />
-                                            @Html.DropDownListFor(model => model.USUARIOS_ROL, new SelectList(ViewBag.data, "ROLES_ID", "ROLES_NOMBRES"), new { @class = "form-control " })
+                                            @Html.DropDownListFor(model => model.USUARIOS_ROL, new SelectList(ViewBag.roles, "ROLES_ID", "ROLES_NOMBRES"), new { @class = "form-control " })
                                             @Html.ValidationMessageFor(model => model.USUARIOS_ROL, "", new { @class = "text-danger" })
                                             @*<select id="roles" name="roles" class="custom-select cz-sidebar-width float-right"></select>*@
                                         </div>
@@ -110,5 +112,3 @@
             });
     }
 </script>
-
-

@@ -16,11 +16,9 @@ namespace constructora_diseño.Controllers
     public class LoginController : Controller
     {
 
-        //Modelos.constructora_diseñoEntities contexto = new Modelos.constructora_diseñoEntities();
         // GET: Login
         [HttpGet]
-        [AllowAnonymous]
-        public ActionResult Entrar(Modelos.LoginViewModel data, string returnUrl)
+        public ActionResult Entrar(string returnUrl)
         {
             ActionResult Result;
             ViewBag.ReturnUrl = returnUrl;
@@ -77,7 +75,7 @@ namespace constructora_diseño.Controllers
 
             if (string.IsNullOrWhiteSpace(returnUrl))
             {
-                returnUrl = Url.Action("Inicio", "Menu");
+                returnUrl = Url.Action("MostrarAdministradores", "Menu");
             }
 
             Result = Redirect(returnUrl);
