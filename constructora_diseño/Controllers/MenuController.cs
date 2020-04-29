@@ -54,7 +54,7 @@ namespace constructora_diseño.Controllers
         [HttpPost]
         public ActionResult Crear(string USUARIOS_NOMBRE, string USUARIOS_USUARIO, string USUARIOS_CONTRASEÑA, int USUARIOS_ROL)
         {
-            Thread.Sleep(5000);
+            Thread.Sleep(2000);
             using(Repositorio<cd_usuarios> obj = new Repositorio<cd_usuarios>())
             {
                 obj.Exception += Obj_Exception;
@@ -98,24 +98,46 @@ namespace constructora_diseño.Controllers
 
         //Funcion que contiene la vista de editar
         [HttpGet]
-        public ActionResult EditarAdministrador(int? id_usuario)
+        public ActionResult EditarAdministrador(int? id)
         {
             using (Repositorio<cd_roles> obj = new Repositorio<cd_roles>())
             {
                 ViewBag.roles = obj.Filter(x => true);
             }
-            if(id_usuario != null)
+            //ViewBag.valor = id_usuario;
+            if (id != null)
             {
+                //ViewBag.valor = "esta entrando aca";
                 using(Repositorio<cd_usuarios> obj = new Repositorio<cd_usuarios>())
                 {
-                    var modelo = obj.Retrieve(x => x.USUARIOS_ID == id_usuario);
+                    var modelo = obj.Retrieve(x => x.USUARIOS_ID == id);
                     if(modelo != null)
                     {
                         return View(modelo);
                     }
                 }
             }
+            else
+            {
+                ViewBag.valor = "No existe";
+            }
             return View();
+        }
+
+        [HttpPost]
+        public ActionResult EditarAjax(cd_usuarios usuario)
+        {
+            Thread.Sleep(2000);
+            bool result = false;
+            string mensaje = "Error al actualizar el registro";
+            using(Repositorio<cd_usuarios> obj = new Repositorio<cd_usuarios>())
+            {
+                obj.Exception += Obj_Exception;
+                obj.Update(usuario);
+                result = true;
+                mensaje = "Registro actualizado!";
+            }
+            return Json(new { result = result, mensaje = mensaje }, JsonRequestBehavior.AllowGet);
         }
 
         

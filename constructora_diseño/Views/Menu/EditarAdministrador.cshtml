@@ -18,13 +18,13 @@
             </div>
             <div class="card-body">
                 <div class="px-3">
-
+                    <h1>@ViewBag.valor</h1>
                     @using (Html.BeginForm("Editar", "Menu", FormMethod.Post, new { @class = "form", id = "formulario" }))
                     {
                         @Html.AntiForgeryToken()
 
                         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-                        @Html.EditorFor(Model => Model.USUARIOS_ID)
+                        @Html.HiddenFor(model => model.USUARIOS_ID)
 
                         <div class="row justify-content-md-center">
                             <div class="col-md-6">
@@ -72,11 +72,11 @@
 
                         <div class="form-actions clearfix">
                             <div class="buttons-group float-left">
-                                <button type="submit" class="btn btn-raised btn-primary mr-1">
+                                @*<button type="submit" class="btn btn-raised btn-primary mr-1">
                                     <i class="fa fa-check-square-o"></i> Guardar
-                                </button>
+                                </button>*@
                                 <button type="button" onclick="GuardarAjax()" class="btn btn-raised btn-primary mr-1">
-                                    <i class="fa fa-check-square-o"></i> Guardar con ajax
+                                    <i class="fa fa-check-square-o"></i> Actualizar
                                 </button>
                             </div>
                         </div>
@@ -97,13 +97,13 @@
         var formulario = $("#formulario");
         console.log(formulario);
         $.ajax({
-                url: "/Menu/CrearAjax",
+            url: "/Menu/EditarAjax",
                 data: formulario.serialize(),
                 method: "POST",
                 success: function (resultado) {
                     if (resultado.result) {
                         alert(resultado.mensaje);
-                        window.location.href = '@Url.Action("Menu", "Inicio")'
+                        window.location.href = '@Url.Action("MostrarAdministradores", "Menu")'
                     }
                     else {
                         alert(resultado.mensaje);

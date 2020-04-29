@@ -20,16 +20,17 @@ namespace Pruebas
             using (Modelos.Repositorio<Modelos.cd_usuarios> dato = new Modelos.Repositorio<Modelos.cd_usuarios>())
                 {
                 dato.Exception += Obj_Exception;
-                dato.Create(new Modelos.cd_usuarios()
-                    {
-                        USUARIOS_NOMBRE = "santos cervantes3",
-                        USUARIOS_USUARIO = "santos3",
-                        USUARIOS_CONTRASEÑA = Seguridad.Encriptar("sendoh123"),
-                        USUARIOS_ROL = 1,
-                    });
+                //dato.Create(new Modelos.cd_usuarios()
+                //    {
+                //        USUARIOS_NOMBRE = "santos cervantes3",
+                //        USUARIOS_USUARIO = "santos3",
+                //        USUARIOS_CONTRASEÑA = Seguridad.Encriptar("sendoh123"),
+                //        USUARIOS_ROL = 1,
+                //    });
 
-                    var listado = dato.Filter(x => true);
-                    foreach (var item in listado)
+                //var listado = dato.Retrieve(x => x.USUARIOS_ID == 2);
+                var listado = dato.Filter(x => true);
+                foreach (var item in listado)
                     {
                         Console.WriteLine(item.USUARIOS_NOMBRE);
                         Console.WriteLine(item.USUARIOS_CONTRASEÑA);
