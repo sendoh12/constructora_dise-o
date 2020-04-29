@@ -73,7 +73,6 @@ namespace constructora_diseño.Controllers
                 Imagenes img = new Imagenes();
                 Listaimagen list = new Listaimagen();
                 HttpPostedFileBase archivo = Request.Files[0];
-                 //img.Titulo = (archivo.FileName).ToLower();
                 if (archivo.ContentLength > 0)
                 {
                     string ext = archivo.FileName;
@@ -91,7 +90,9 @@ namespace constructora_diseño.Controllers
                         img.Imagen = archivo;
                         //guardamos la imagen en la base de datos
                         list.Insertar(img);
-                        
+                        RedirectToAction("Inicio", "Menu");
+
+
                     }
 
                 }
