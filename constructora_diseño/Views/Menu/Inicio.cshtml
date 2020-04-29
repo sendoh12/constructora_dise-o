@@ -101,7 +101,7 @@
                 success: function (resultado) {
                     if (resultado.result) {
                         alert(resultado.mensaje);
-                        window.location.href = '@Url.Action("Menu", "Inicio")'
+                        window.location.href = '@Url.Action("Inicio", "Menu")'
                     }
                     else {
                         alert(resultado.mensaje);

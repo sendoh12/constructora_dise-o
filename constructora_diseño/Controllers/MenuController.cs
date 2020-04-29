@@ -124,6 +124,7 @@ namespace constructora_diseño.Controllers
             return View();
         }
 
+        //funcion para editar un administrador
         [HttpPost]
         public ActionResult EditarAjax(cd_usuarios usuario)
         {
@@ -140,6 +141,22 @@ namespace constructora_diseño.Controllers
             return Json(new { result = result, mensaje = mensaje }, JsonRequestBehavior.AllowGet);
         }
 
+        //funcion para eliminar un administrador
+        [HttpPost]
+        public ActionResult EliminarAdministrador(int? id_user)
+        {
+            Thread.Sleep(2000);
+            bool result = false;
+            string mensaje = "Error al borrar el registro";
+            using(Repositorio<cd_usuarios> obj = new Repositorio<cd_usuarios>())
+            {
+                obj.Exception += Obj_Exception;
+                obj.Delete(obj.Retrieve(x => x.USUARIOS_ID == id_user));
+                result = true;
+                mensaje = "Registro Borrado";
+            }
+            return Json(new { result = result, mensaje = mensaje }, JsonRequestBehavior.AllowGet);
+        }
         
         
 
