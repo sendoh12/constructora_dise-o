@@ -61,6 +61,10 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\constructora_diseño\constructora_diseño.csproj">
+      <Project>{bfa90505-fe4c-4e61-931f-cc3153898e79}</Project>
+      <Name>constructora_diseño</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Modelos\Modelos.csproj">
       <Project>{d7cc7d3a-a206-4d6d-910c-28cb4cf2c3d9}</Project>
       <Name>Modelos</Name>

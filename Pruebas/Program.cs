@@ -2,8 +2,10 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.Remoting.Contexts;
 using System.Text;
 using System.Threading.Tasks;
+using constructora_diseño;
 
 namespace Pruebas
 {
@@ -11,32 +13,31 @@ namespace Pruebas
     {
         static void Main(string[] args)
         {
-            using (Modelos.Repositorio<Modelos.cd_roles> obj = new Modelos.Repositorio<Modelos.cd_roles>())
-            {
-                //obj.Exception += Obj_Exception;
-                //obj.Delete(obj.Retrieve(x => x.ROLES_ID == 2));
+            //Modelos.constructora_diseñoEntities contexto = new Modelos.constructora_diseñoEntities();
+            //obj.Exception += Obj_Exception;
+            //obj.Delete(obj.Retrieve(x => x.ROLES_ID == 2));
 
-                using(Modelos.Repositorio<Modelos.cd_usuarios> dato = new Modelos.Repositorio<Modelos.cd_usuarios>())
+            using (Modelos.Repositorio<Modelos.cd_usuarios> dato = new Modelos.Repositorio<Modelos.cd_usuarios>())
                 {
-                    dato.Create(new Modelos.cd_usuarios()
-                    {
-                        USUARIOS_NOMBRE = "carlos ferrandon",
-                        USUARIOS_USUARIO = "carlos",
-                        USUARIOS_CONTRASEÑA = Seguridad.Encriptar("sendoh12"),
-                        USUARIOS_ROL = 1,
-                    });
+                dato.Exception += Obj_Exception;
+                //dato.Create(new Modelos.cd_usuarios()
+                //    {
+                //        USUARIOS_NOMBRE = "santos cervantes3",
+                //        USUARIOS_USUARIO = "santos3",
+                //        USUARIOS_CONTRASEÑA = Seguridad.Encriptar("sendoh123"),
+                //        USUARIOS_ROL = 1,
+                //    });
 
-                    var listado = dato.Filter(x => true);
-                    foreach (var item in listado)
+                //var listado = dato.Retrieve(x => x.USUARIOS_ID == 2);
+                var listado = dato.Filter(x => true);
+                foreach (var item in listado)
                     {
                         Console.WriteLine(item.USUARIOS_NOMBRE);
                         Console.WriteLine(item.USUARIOS_CONTRASEÑA);
                     }
                 }
 
-                
-            }
-
+            
             Console.WriteLine("Presione <enter> para salir");
             Console.ReadLine();
         }

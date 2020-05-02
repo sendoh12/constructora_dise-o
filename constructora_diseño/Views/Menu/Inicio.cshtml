@@ -6,7 +6,7 @@
 
 
 
-<div class="row">
+<div class="row justify-content-md-center">
     <div class="col-md-12">
         <div class="card">
             <div class="card-header">
@@ -19,7 +19,7 @@
             <div class="card-body">
                 <div class="px-3">
 
-                    @using (Html.BeginForm("Crear", "Menu", FormMethod.Post, new { id = "formulario" }))
+                    @using (Html.BeginForm("Crear", "Menu", FormMethod.Post, new { @class = "form", id = "formulario" }))
                     {
                         @Html.AntiForgeryToken()
 
@@ -39,7 +39,7 @@
                                     <div class="row">
                                         <div class="form-group col-12 mb-2">
                                             <label for="eventRegInput2">Usuario</label>
-                                            @Html.EditorFor(model => model.USUARIOS_USUARIO, new { htmlAttributes = new { @class = "form-control", placeholder = "Usiario" } })
+                                            @Html.EditorFor(model => model.USUARIOS_USUARIO, new { htmlAttributes = new { @class = "form-control", placeholder = "Usuario" } })
                                             @Html.ValidationMessageFor(model => model.USUARIOS_USUARIO, "", new { @class = "text-danger" })
                                             @*<input type="text" id="usuario" class="form-control" placeholder="title" name="usuario">*@
                                         </div>
@@ -56,8 +56,8 @@
 
                                     <div class="row">
                                         <div class="form-group col-12 mb-2">
-                                            <label for="eventRegInput4">Tipo de usuario</label><br />                       
-                                            @Html.DropDownListFor(model => model.USUARIOS_ROL, new SelectList(ViewBag.data, "ROLES_ID", "ROLES_NOMBRES"), new { @class = "form-control" })
+                                            <label for="eventRegInput4">Tipo de usuario</label><br />
+                                            @Html.DropDownListFor(model => model.USUARIOS_ROL, new SelectList(ViewBag.data, "ROLES_ID", "ROLES_NOMBRES"), new { @class = "form-control " })
                                             @Html.ValidationMessageFor(model => model.USUARIOS_ROL, "", new { @class = "text-danger" })
                                             @*<select id="roles" name="roles" class="custom-select cz-sidebar-width float-right"></select>*@
                                         </div>
@@ -70,7 +70,10 @@
 
                         <div class="form-actions clearfix">
                             <div class="buttons-group float-left">
-                                <button type="submit" class="btn btn-raised btn-primary mr-1">
+                                @*<button type="submit" class="btn btn-raised btn-primary mr-1">
+                                    <i class="fa fa-check-square-o"></i> Guardar
+                                </button>*@
+                                <button type="button" onclick="GuardarAjax()" class="btn btn-raised btn-primary mr-1">
                                     <i class="fa fa-check-square-o"></i> Guardar
                                 </button>
                             </div>
@@ -86,5 +89,26 @@
 <script src="~/Scripts/jquery-1.10.2.min.js"></script>
 <script src="~/Scripts/jquery.validate.min.js"></script>
 <script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
+
+<script>
+    function GuardarAjax() {
+        var formulario = $("#formulario");
+        console.log(formulario);
+        $.ajax({
+                url: "/Menu/CrearAjax",
+                data: formulario.serialize(),
+                method: "POST",
+                success: function (resultado) {
+                    if (resultado.result) {
+                        alert(resultado.mensaje);
+                        window.location.href = '@Url.Action("Inicio", "Menu")'
+                    }
+                    else {
+                        alert(resultado.mensaje);
+                    }
+                }
+            });
+    }
+</script>
 
 

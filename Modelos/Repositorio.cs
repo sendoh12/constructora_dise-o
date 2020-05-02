@@ -7,6 +7,7 @@ using System.Linq;
 using System.Linq.Expressions;
 using System.Reflection;
 
+
 namespace Modelos
 {
     public delegate void ExceptionEventHandler(object sender, ExceptionEventArgs e);
@@ -152,8 +153,6 @@ namespace Modelos
             return Resultado;
         }
 
-       
-
         public void Dispose()
         {
             if (Context != null)
@@ -171,3 +170,5 @@ namespace Modelos
         public IEnumerable<DbEntityValidationResult> EntityValidationErrors { get; set; }
     }
 }
+
+

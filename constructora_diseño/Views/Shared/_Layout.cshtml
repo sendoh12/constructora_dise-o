@@ -19,9 +19,20 @@
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-touch-fullscreen" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="default">
+    <link href="~/Content/Site.css" rel="stylesheet" type="text/css" />
     <link href="https://fonts.googleapis.com/css?family=Rubik:300,400,500,700,900|Montserrat:300,400,500,600,700,800,900" rel="stylesheet">
     <!-- BEGIN VENDOR CSS-->
+    <link href="~/Content/Site.css" rel="stylesheet" type="text/css" />
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <script src="~/Scripts/modernizr-2.6.2.js"></script>
+    <link href="~/Content/jquery.dataTables.min.css" rel="stylesheet" />
     @Styles.Render("~/bundles/css");
+    <style>
+        body {
+            padding-top: 0;
+            padding-bottom: 20px;
+        }
+    </style>
 </head>
 <!-- END : Head-->
 <!-- BEGIN : Body-->
@@ -49,30 +60,29 @@
                     <ul id="main-menu-navigation" data-menu="menu-navigation" data-scroll-to-active="true" class="navigation navigation-main">
 
                         <li class=" nav-item">
-                            <a href=""><i class="ft-droplet"></i><span data-i18n="" class="menu-title">Ver Administradores</span></a>
+                            <a href="@Url.Action("MostrarAdministradores", "Menu")"><i class="ft-droplet"></i><span data-i18n="" class="menu-title">Ver Administradores</span></a>
                         </li>
                         <li class=" nav-item">
-                            <a href=""><i class="ft-mail"></i><span data-i18n="" class="menu-title">Crear Ar</span></a>
+                            <a href="@Url.Action("Inicio", "Menu")"><i class="ft-mail"></i><span data-i18n="" class="menu-title">Crear Administradores</span></a>
                         </li>
-                        <li class=" nav-item">
+                        @*<li class=" nav-item">
                             <a href=""><i class="ft-message-square"></i><span data-i18n="" class="menu-title">Chat</span></a>
                         </li>
                         <li class=" nav-item">
                             <a href=""><i class="ft-file-text"></i><span data-i18n="" class="menu-title">Task Board</span></a>
-                        </li>
+                        </li>*@
                         <li class=" nav-item">
-                            <a href=""><i class="ft-calendar"></i><span data-i18n="" class="menu-title">Calendar</span></a>
+                            <a href="@Url.Action("LogOff", "Login")"><i class="ft-calendar"></i><span data-i18n="" class="menu-title">Salir</span></a>
                         </li>
-
                     </ul>
                 </div>
             </div>
-            <!-- main menu content-->
-            <div class="sidebar-background"></div>
-            <!-- main menu footer-->
-            <!-- include includes/menu-footer-->
-            <!-- main menu footer-->
         </div>
+        <!-- main menu content-->
+        <div class="sidebar-background"></div>
+        <!-- main menu footer-->
+        <!-- include includes/menu-footer-->
+        <!-- main menu footer-->
         <!-- / main menu-->
         <!-- Navbar (Header) Starts-->
         <nav class="navbar navbar-expand-lg navbar-light bg-faded header-navbar">
@@ -97,7 +107,7 @@
                             </li>
                             <li class="dropdown nav-item">
                                 <a id="dropdownBasic3" href="#" data-toggle="dropdown" class="nav-link position-relative dropdown-toggle"><i class="ft-flag font-medium-3 blue-grey darken-4"></i><span class="selected-language d-none"></span></a>
-                                <div class="dropdown-menu dropdown-menu-right text-left"><a href="javascript:;" class="dropdown-item py-1"><img src="app-assets/img/flags/us.png" class="langimg" /><span> English</span></a><a href="javascript:;" class="dropdown-item py-1"><img src="app-assets/img/flags/es.png" class="langimg" /><span> Spanish</span></a><a href="javascript:;" class="dropdown-item py-1"><img src="app-assets/img/flags/br.png" class="langimg" /><span> Portuguese</span></a><a href="javascript:;" class="dropdown-item"><img src="app-assets/img/flags/de.png" class="langimg" /><span> French</span></a></div>
+                                <div class="dropdown-menu dropdown-menu-right text-left"><a href="javascript:;" class="dropdown-item py-1"><img src="~/app-assets/img/flags/us.png" class="langimg" /><span> English</span></a><a href="javascript:;" class="dropdown-item py-1"><img src="~/app-assets/img/flags/es.png" class="langimg" /><span> Spanish</span></a><a href="javascript:;" class="dropdown-item py-1"><img src="~/app-assets/img/flags/br.png" class="langimg" /><span> Portuguese</span></a><a href="javascript:;" class="dropdown-item"><img src="~/app-assets/img/flags/de.png" class="langimg" /><span> French</span></a></div>
                             </li>
                             <li class="dropdown nav-item">
                                 <a id="dropdownBasic2" href="#" data-toggle="dropdown" class="nav-link position-relative dropdown-toggle">
@@ -114,7 +124,7 @@
                                     <p class="d-none">User Settings</p>
                                 </a>
                                 <div ngbdropdownmenu="" aria-labelledby="dropdownBasic3" class="dropdown-menu text-left dropdown-menu-right">
-                                    <a href="../../../html/html/ltr/chat.html" class="dropdown-item py-1"><i class="ft-message-square mr-2"></i><span>Chat</span></a><a href="../../../html/html/ltr/user-profile-page.html" class="dropdown-item py-1"><i class="ft-edit mr-2"></i><span>Edit Profile</span></a><a href="../../../html/html/ltr/inbox.html" class="dropdown-item py-1"><i class="ft-mail mr-2"></i><span>My Inbox</span></a>
+                                    <a href="../../../html/html/ltr/chat.html" class="dropdown-item py-1"><i class="ft-message-square mr-2"></i><span>Chat</span></a><a href="#" class="dropdown-item py-1"><i class="ft-edit mr-2"></i><span>Edit Profile</span></a><a href="#" class="dropdown-item py-1"><i class="ft-mail mr-2"></i><span>My Inbox</span></a>
                                     <div class="dropdown-divider"></div><a href="../../../html/html/ltr/login-page.html" class="dropdown-item"><i class="ft-power mr-2"></i><span>Logout</span></a>
                                 </div>
                             </li>
@@ -134,21 +144,40 @@
         <div class="main-panel">
             <!-- BEGIN : Main Content-->
             <div class="main-content">
-                @RenderBody()
-
+                <div class="content-wrapper">
+                    <!--Statistics cards Starts-->
+                    @RenderBody()
+                    <div class="loaderbody" id="loaderbody">
+                        <div class="loader"></div>
+                    </div>
+                </div>
             </div>
         </div>
 
-            <!-- BEGIN : Footer-->
-            <footer class="footer footer-static footer-light">
-                <p class="clearfix text-muted text-sm-center px-2"><span>Copyright  &copy; 2019 <a href="https://themeforest.net/user/pixinvent/portfolio?ref=pixinvent" id="pixinventLink" target="_blank" class="text-bold-800 primary darken-2">PIXINVENT </a>, All rights reserved. </span></p>
-            </footer>
-            <!-- End : Footer-->
-        </div>
-
+    </div>
+    <!-- BEGIN : Footer-->
+    <footer class="footer footer-static footer-light">
+        <p class="clearfix text-muted text-sm-center px-2"><span>Copyright  &copy; 2019 <a href="https://themeforest.net/user/pixinvent/portfolio?ref=pixinvent" id="pixinventLink" target="_blank" class="text-bold-800 primary darken-2">PIXINVENT </a>, All rights reserved. </span></p>
+    </footer>
+    <!-- End : Footer-->
     <!-- ////////////////////////////////////////////////////////////////////////////-->
 
     @Scripts.Render("~/bundles/js");
+    @*<script src="~/Scripts/jquery-1.10.2.min.js"></script>*@
+    <script src="~/Scripts/bootstrap.min.js"></script>
+    <script src="~/Scripts/jquery.dataTables.min.js"></script>
+    @RenderSection("scripts", false)
+    <script>
+        $(function () {
+            $("#loaderbody").addClass('hidden');
+            $(document).bind('ajaxStart', function () {
+                $("#loaderbody").removeClass('hidden');
+            }).bind('ajaxStop', function () {
+                $("#loaderbody").addClass('hidden');
+            });
+        })
+    </script>
+
 </body>
 <!-- END : Body-->
 </html>
